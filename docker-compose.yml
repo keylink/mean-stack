@@ -8,3 +8,13 @@ services:
       - "5000:9090"
     volumes:
       - ./:/usr/src/app
+
+  client:
+    build:
+      context: .
+    ports:
+      - "4040:4040"
+
+  mongo:
+    image: mongo:3.6
+

@@ -5,14 +5,6 @@ app.get('/', function (req, res) {
   res.send('Hello World!');
 });
 
-app.get('/about', function (req, res) {
-  res.send('about');
-});
-
-app.get('/tes', function (req, res) {
-  res.send('tes');
-});
-
 app.listen(9090, function () {
   console.log('Example app listening on port 9090!');
 });
