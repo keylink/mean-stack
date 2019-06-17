@@ -1,20 +1,28 @@
 version: '3'
+
+# Define the services/containers to be run
 services:
-  node-web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  angular: # name of the first service
+    build: angular-client # specify the directory of the Dockerfile
     ports:
-      - "5000:9090"
+      - "4200:4200" # specify port for angular
     volumes:
-      - ./:/usr/src/app
+      - ./angular-client:/app # this will enable changes made to the angular app reflect in the container
 
-  client:
-    build:
-      context: .
+  express: #name of the second service
+    build: express-server # specify the directory of the Dockerfile
     ports:
-      - "4040:4040"
+      - "3000:3000" #specify ports express server
+    environment:
+      NODE_ENV: production
+      SERVER_PORT: 3000
+      JWT_SECRET: 0a6b944d-d2fb-46fc-a85e-0295c986cd9f
+      MONGO_HOST: mongodb+srv://kanat:kanat@cluster0-wrsdo.mongodb.net/test?retryWrites=true&w=majority
+    volumes:
+      - ./express-server:/usr/src/app # this will enable changes made to the angular app reflect in the container
 
-  mongo:
-    image: mongo:3.6
+  #database: # name of the third service
+    #image: mongo # specify image to build container from
+    #ports:
+    #  - "27020:27017" # specify port mongoDB
 
