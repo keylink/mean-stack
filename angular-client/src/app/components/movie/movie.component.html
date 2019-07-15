@@ -1,0 +1,65 @@
+<div *ngIf="movie" class="container">
+  <div class="row" id="contatti">
+    <div class="container mt-5" >
+      <div class="row">
+        <div class="col-12">
+          <button class="btn btn-primary float-right" routerLink="/movie/edit/{{movie._id}}">Edit</button>
+        </div>
+        <div class="col-md-5 maps">
+          <img class="movie-header manOfSteel" src={{movie.poster}} />
+        </div>
+        <div class="col-md-7">
+          <h2 class="text-uppercase mt-3 font-weight-bold text-white">{{movie.title}}</h2>
+          <form action="">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  Title: <div class="form-replica">{{movie.title}}</div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                  Plot:
+                  <div class="form-replica">{{movie.fullplot}}</div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-group">
+                  Duration:
+                  <div class="form-replica">{{movie.runtime | minuteSeconds}}</div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-group">
+                  Genres:
+                  <div class="form-replica">{{movie.genres && movie.genres[0]}}</div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-group">
+                  Released:
+                  <div class="form-replica">{{movie.released | date: 'yyyy-MM-dd'}}</div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-group">
+                  Cast:
+                  <div class="form-replica">
+                    <ul class="cast">
+                      <li *ngFor="let cast of movie.cast">{{cast}}</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row text-center bg-success text-white" id="author">
+    <div class="col-12 mt-4 h3 ">
+      <a href="/">2019</a>
+    </div>
+  </div>
+</div>

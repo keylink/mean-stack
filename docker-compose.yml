@@ -17,12 +17,12 @@ services:
       NODE_ENV: production
       SERVER_PORT: 3000
       JWT_SECRET: 0a6b944d-d2fb-46fc-a85e-0295c986cd9f
-      MONGO_HOST: mongodb+srv://kanat:kanat@cluster0-wrsdo.mongodb.net/test?retryWrites=true&w=majority
+      MONGO_HOST: mongodb+srv://kanat:kanat@cluster0-wrsdo.mongodb.net/sample_mflix?retryWrites=true&w=majority
     volumes:
       - ./express-server:/usr/src/app # this will enable changes made to the angular app reflect in the container
 
-  #database: # name of the third service
-    #image: mongo # specify image to build container from
-    #ports:
-    #  - "27020:27017" # specify port mongoDB
+  database: # name of the third service
+    image: mongo # specify image to build container from
+    ports:
+      - "27017:27017" # specify port mongoDB
 

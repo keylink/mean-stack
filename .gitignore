@@ -3,6 +3,8 @@
 # dependencies
 /express-server/node_modules
 /angular-client/node_modules
+/express-server/.git
+/express-server/.gitignore
 
 # testing
 /coverage

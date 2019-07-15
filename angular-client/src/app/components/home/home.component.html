@@ -1,0 +1,45 @@
+<div>
+  <div class="row ">
+    <input [(ngModel)]="query" type="text" class="form-control custom-search"  placeholder="Search by id" >
+    <button (click)="searchMovie()">search</button>
+    <div
+      class="foo container-mov"
+      ngxInfiniteScroller
+      strategy="scrollingToBoth"
+      (onScrollUp)="onScrollUp()"
+      (onScrollDown)="onScrollDown()"
+    >
+        <div class="movie-card" *ngFor="let movie of movies">
+          <img routerLink="/movie/{{movie._id}}" class="movie-header manOfSteel" src={{movie.poster}} />
+          <div class="movie-content">
+            <div class="movie-content-header">
+              <a routerLink="/movie/{{movie._id}}">
+                <h3 class="movie-title">{{movie.title || '-'}}</h3>
+              </a>
+              <span class="pull-right">
+                  <i class="thumbs-up" (click)="updateRating(movie._id, movie.imdb.rating, movie.imdb.votes)"></i>
+              </span>
+            </div>
+            <div class="movie-info">
+              <div class="info-section">
+                <label>Date</label>
+                <span>{{movie.released | date: 'yyyy-MM-dd' || '-'}}</span>
+              </div><!--date,time-->
+              <div class="info-section">
+                <label>Rating</label>
+                <span>{{movie.imdb.rating | number : '1.2-2'}}</span>
+              </div><!--screen-->
+              <div class="info-section">
+                <label>Votes</label>
+                <span>{{movie.imdb.votes  || '-'}}</span>
+              </div><!--row-->
+              <div class="info-section">
+                <label>Genres</label>
+                <span>{{movie.genres && movie.genres[0] || '-'}}</span>
+              </div><!--seat-->
+            </div>
+          </div><!--movie-content-->
+        <!--movie-card-->
+    </div>
+  </div>
+</div>
