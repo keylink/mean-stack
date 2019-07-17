@@ -23,6 +23,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MovieComponent } from './components/movie/movie.component';
 import { ConverToHoursPipe } from './components/movie/toHours.pipe';
 import { MovieEditComponent } from './components/movie-edit/movie-edit.component';
+import { UserInfoComponent } from "./components/user-info/user-info.component";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { MovieEditComponent } from './components/movie-edit/movie-edit.component
     MovieComponent,
     MovieEditComponent,
     ConverToHoursPipe,
+    UserInfoComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { AuthGuard } from '../auth/auth-guard.service';
 import { HomeComponent } from '../home/home.component';
 import { MovieComponent } from "../movie/movie.component";
 import { MovieEditComponent } from "../movie-edit/movie-edit.component";
+import { UserInfoComponent } from "../user-info/user-info.component";
 
 const routes: Routes = [
   {
@@ -25,6 +26,10 @@ const routes: Routes = [
   {
     path: 'movie/edit/:id',
     component: MovieEditComponent
+  },
+  {
+    path: 'user/:id',
+    component: UserInfoComponent
   }
 ];
 

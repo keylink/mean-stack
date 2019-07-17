@@ -39,6 +39,6 @@ async function updateRating(id, rating) {
 }
 
 async function searchMovie(title) {
-    var regexp = new RegExp("^"+ title)
-    return await Movies.find({"title": regexp});
+    var regexp = { $regex: '.*' + title + '.*' }
+    return await Movies.find({"title": regexp}).limit(20);
 }

@@ -7,13 +7,14 @@ const api = '';
   providedIn: 'root'
 })
 export class AppDataService {
-  private page: number;
+  private page: number = 0;
   private movie: any;
 
   constructor(private http: HttpClient) {}
 
   public getMovies(): Observable<any> {
     this.page = this.page + 1;
+    console.log(this.page)
     return this.http.get(`${api}/api/movie?page=${this.page}`);
   }
 
@@ -32,6 +33,4 @@ export class AppDataService {
   public searchMovie(movie): Observable<any> {
     return this.http.get(`${api}/api/movie/search?movie=${movie}`);
   }
-
-  //search?movie=
 }

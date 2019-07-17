@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { TokenStorage } from './token.storage';
 //import { TooltipComponent } from '@angular/material';
 
-const urlAddress = 'http://localhost:3000';
+const urlAddress = '';
 
 @Injectable()
 export class AuthService {

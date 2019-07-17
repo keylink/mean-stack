@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-4 col-sm-6">
+
+      <div class="card hovercard">
+        <div class="cardheader">
+
+        </div>
+        <div class="avatar">
+          <img alt="" src="http://lorempixel.com/100/100/people/2/">
+        </div>
+        <div class="info">
+          <div class="title">
+            <a [routerLink]="['/user', id]">{{id}}</a>
+          </div>
+          <div class="desc">Passionate designer</div>
+          <div class="desc">Curious developer</div>
+          <div class="desc">Tech geek</div>
+        </div>
+        <div class="bottom">
+          <a class="btn btn-primary btn-twitter btn-sm" [routerLink]="['/user', id]">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a class="btn btn-danger btn-sm" rel="publisher"
+             [routerLink]="['/user', id]">
+            <i class="fa fa-google-plus"></i>
+          </a>
+          <a class="btn btn-primary btn-sm" rel="publisher"
+             [routerLink]="['/user', id]">
+            <i class="fa fa-facebook"></i>
+          </a>
+          <a class="btn btn-warning btn-sm" rel="publisher" [routerLink]="['/user', id]">
+            <i class="fa fa-behance"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>

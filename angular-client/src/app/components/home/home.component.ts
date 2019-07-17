@@ -54,10 +54,21 @@ export class HomeComponent implements OnInit {
 
   public searchMovie() {
     this.DataService.searchMovie(this.query).subscribe(data => {
-      console.log('aaa', data);
-
       this.movies = [];
-      this.movies.push(data);
+      data.forEach(item => this.movies.push(item));
+      this.httpReqestInProgress = true;
+    });
+  }
+
+  public searchCheck() {
+    console.log(this.query)
+    this.query = '';
+
+    this.httpReqestInProgress = false;
+
+    this.DataService.getMovies().subscribe(data => {
+      this.movies = [];
+      data.docs.forEach(item => this.movies.push(item));
     });
   }
 
