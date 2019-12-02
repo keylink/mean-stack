@@ -54,8 +54,35 @@ app.use(helmet());
 
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors({
-  origin: '*',
-}));
+  allRoutes: true,
+  allowOrigins: [
+    // 'https://pebblar.com',
+    // 'https://staging.pebblar.com',
+    'http://localhost:4200', // For local dev
+    // 'http://localhost:3001', // For local dev
+    // 'http://localhost:5000', // For local dev
+    // 'http://localhost:8080', // For PDF
+    // 'https://www.pebblar.com',
+    // 'https://freemium.pebblar.com',
+    // 'https://freemium-dev.firebaseapp.com',
+    // 'https://freemium-staging.firebaseapp.com',
+    // 'https://freemium-193908.firebaseapp.com',
+    // 'https://freemium-devtw.firebaseapp.com',
+    // 'https://booming-monitor-216204.firebaseapp.com',
+    // 'https://pdf-dot-freemium-dev.appspot.com',
+    // 'https://pdf-dot-freemium-staging.appspot.com',
+    // 'https://pdf-dot-freemium-193908.appspot.com',
+    // 'https://pdf-dot-freemium-devtw.appspot.com',
+    // 'https://pdf-dot-booming-monitor-216204.appspot.com',
+    // 'https://mobile-dot-freemium-193908.appspot.com',
+    // 'https://mobile-dot-freemium-staging.appspot.com',
+
+
+    //'https://5157cd2a.ngrok.io',
+  ],
+  allowCredentials: true,
+  allowRequestHeaders: 'content-type,authorization',
+},));
 // // Cross Origin middleware
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*")

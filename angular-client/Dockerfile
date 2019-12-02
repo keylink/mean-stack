@@ -1,5 +1,7 @@
 FROM node:10
 
+COPY start.sh /start.sh
+
 # Create a directory where our app will be placed
 RUN mkdir -p /app
 
@@ -7,10 +9,10 @@ RUN mkdir -p /app
 WORKDIR /app
 
 # Copy dependency definitions
-COPY package*.json /app/
+#COPY package*.json /app/
 
 # Install dependecies
-RUN npm install
+#RUN npm install
 
 # Get all the code needed to run the app
 COPY . /app/
@@ -19,4 +21,10 @@ COPY . /app/
 EXPOSE 4200
 
 # Serve the app
-CMD ["npm", "start"]
+#CMD ["npm", "start"]
+
+RUN chmod +x /start.sh
+
+#WORKDIR /code
+
+CMD /start.sh

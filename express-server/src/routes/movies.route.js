@@ -18,6 +18,8 @@ router.route('/:id')
     .put(asyncHandler(updateMovie));
 router.route('/rating/:id')
     .put(asyncHandler(updateRating));
+router.route('listen')
+    .get(asyncHandler(listen))
 
 
 async function getMovie(req, res) {
@@ -55,4 +57,9 @@ async function searchMovie(req, res) {
     const movie = req.query.movie;
     let movies = await moviesCtrl.searchMovie(movie);
     res.json(movies);
+}
+
+
+async function listen(req, res) {
+    let listen = await moviesCtrl.listen(req, res, music);
 }

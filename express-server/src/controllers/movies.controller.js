@@ -1,5 +1,6 @@
 const Joi = require('joi');
 const Movies = require('../models/movies.model');
+const ms = require('mediaserver');
 
 const moviesSchema = Joi.object({
     title: Joi.string().required(),
@@ -41,4 +42,8 @@ async function updateRating(id, rating) {
 async function searchMovie(title) {
     var regexp = { $regex: '.*' + title + '.*' }
     return await Movies.find({"title": regexp}).limit(20);
+}
+
+async function listen(music) {
+    ms.pipe("/birds.ogg");
 }
